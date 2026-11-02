@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Livia Caroline | Terapia Ocupacional & Integração Sensorial</title>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;1,500;1,600&display=swap" rel="stylesheet">
+<style>
+  /* ================= VARIÁVEIS ================= */
+  :root {
+    --verde-salvia: #6f8f7a;
+    --verde-escuro: #4a6352;
+    --verde-claro: #e8efe9;
+    --roxo: #7d6a8e;
+    --roxo-escuro: #3b2e45;
+    --fundo-bege: #fcfaf5;
+    --fundo-bege-escuro: #f4efe6;
+    --fundo-areia: #f8f4eb;
+    --texto-escuro: #2a282b;
+    --texto-claro: #5c5861;
+    --branco: #ffffff;
+    --coral: #d98a8a;
+    --coral-claro: #f4e1e1;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  
+  body {
+    font-family: 'Montserrat', sans-serif;
+    background-color: var(--fundo-bege);
+    color: var(--texto-escuro);
+    line-height: 1.8;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+  }
+
+  h1, h2, h3, .fonte-elegante { font-family: 'Playfair Display', serif; color: var(--roxo-escuro); }
+
+  /* ================= CABEÇALHO ================= */
+  header {
+    position: fixed; top: 0; left: 0; width: 100%;
+    padding: 25px 50px; display: flex; justify-content: space-between; align-items: center;
+    z-index: 1000; transition: all 0.5s ease;
+  }
+  header.scrolled {
+    background-color: rgba(252, 250, 245, 0.95); backdrop-filter: blur(10px);
+    padding: 15px 50px; box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+  }
+  .logo-text {
+    font-family: 'Playfair Display', serif; font-size: 1.8rem; color: var(--branco);
+    font-weight: 600; text-shadow: 0 2px 4px rgba(0,0,0,0.3); transition: all 0.5s ease;
+  }
+  header.scrolled .logo-text { color: var(--roxo-escuro); text-shadow: none; }
+  .btn-header {
+    background-color: var(--roxo); color: var(--branco); padding: 12px 28px;
+    border-radius: 30px; text-decoration: none; font-size: 0.95rem; font-weight: 600; transition: 0.4s;
+  }
+  .btn-header:hover { background-color: var(--roxo-escuro); transform: translateY(-2px); }
+
+  /* ================= HERO ================= */
+  .hero {
+    min-height: 100vh; display: flex; flex-direction: column; position: relative; background-color: var(--verde-escuro);
+  }
+  @media (min-width: 900px) {
+    .hero { flex-direction: row; align-items: stretch; }
+    .hero-texto-wrapper {
+      width: 45%; display: flex; flex-direction: column; justify-content: center;
+      padding: 10% 5% 5% 8%; background: linear-gradient(135deg, #3b2e45 0%, #2a282b 100%); z-index: 2;
+    }
+    .hero-imagem-wrapper { width: 55%; position: relative; overflow: hidden; display: flex; align-items: center; justify-content: center; background-color: #1a1a1a; }
+    .hero-imagem-wrapper img { width: 100%; height: 100%; object-fit: cover; object-position: center 20%; }
+    .hero-imagem-wrapper::after {
+      content: ''; position: absolute; top: 0; left: 0; bottom: 0; width: 150px;
+      background: linear-gradient(to right, #3b2e45 0%, transparent 100%); z-index: 3;
+    }
+  }
+  @media (max-width: 899px) {
+    .hero { justify-content: flex-end; padding-top: 80px; }
+    .hero-imagem-wrapper { width: 100%; height: 60vh; position: relative; }
+    .hero-imagem-wrapper img { width: 100%; height: 100%; object-fit: cover; object-position: top center; }
+    .hero-texto-wrapper {
+      background-color: var(--roxo-escuro); padding: 40px 20px; text-align: center;
+      position: relative; z-index: 2; margin-top: -30px; border-radius: 30px 30px 0 0;
+    }
+  }
+  
+  .hero-subtitulo { 
+    color: var(--coral); font-weight: 700; text-transform: uppercase; 
+    letter-spacing: 5px; font-size: 1.3rem; margin-bottom: 25px; display: block; 
+  }
+  
+  .hero-texto-wrapper h1 { font-size: 3.5rem; color: var(--branco); line-height: 1.15; margin-bottom: 25px; }
+  .hero-texto-wrapper h1 em { color: var(--coral); font-style: italic; }
+  .hero-texto-wrapper p { color: #d1cdd6; font-size: 1.1rem; margin-bottom: 40px; }
+  .btn-hero {
+    background-color: var(--verde-salvia); color: var(--branco); padding: 18px 40px;
+    border-radius: 40px; text-decoration: none; font-weight: 600; font-size: 1.1rem;
+    display: inline-flex; align-items: center; gap: 12px; transition: 0.4s; align-self: flex-start;
+  }
+  .btn-hero:hover { background-color: var(--verde-escuro); transform: translateY(-3px); box-shadow: 0 10px 20px rgba(0,0,0,0.2); }
+
+  /* ================= FRASE IMPACTANTE ================= */
+  .frase-impacto { padding: 120px 20px; text-align: center; background-color: var(--fundo-bege); position: relative; }
+  .frase-impacto::before {
+    content: '“'; position: absolute; top: 20px; left: 50%; transform: translateX(-50%);
+    font-family: 'Playfair Display', serif; font-size: 12rem; color: var(--coral-claro); z-index: 0; line-height: 1;
+  }
+  .frase-impacto blockquote {
+    position: relative; z-index: 1; max-width: 900px; margin: 0 auto;
+    font-family: 'Playfair Display', serif; font-size: 2.2rem; font-style: italic; color: var(--roxo-escuro); line-height: 1.4;
+  }
+  .frase-impacto blockquote span { color: var(--coral); }
+
+  /* ================= ACOLHIMENTO ================= */
+  .acolhimento { padding: 100px 20px; background-color: var(--branco); text-align: center; }
+  .acolhimento-container { max-width: 800px; margin: 0 auto; }
+  .acolhimento h2 { font-size: 2.5rem; margin-bottom: 25px; color: var(--verde-escuro); }
+  .acolhimento p { color: var(--texto-claro); font-size: 1.15rem; }
+
+  /* ================= INDICAÇÕES ================= */
+  .indicacoes { padding: 100px 20px; background-color: var(--fundo-bege-escuro); }
+  .indicacoes-container { max-width: 1200px; margin: 0 auto; text-align: center; }
+  .indicacoes h2 { font-size: 2.2rem; margin-bottom: 15px; }
+  .indicacoes .subtitulo { color: var(--texto-claro); margin-bottom: 50px; display: block; }
+  .grid-indicacoes { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 25px; }
+  .card-indicacao {
+    background-color: var(--branco); padding: 40px 25px; border-radius: 24px;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.04); border: 1px solid rgba(111, 143, 122, 0.1); transition: 0.4s; position: relative; overflow: hidden;
+  }
+  .card-indicacao::before { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 4px; background-color: var(--verde-salvia); transform: scaleX(0); transition: 0.4s; }
+  .card-indicacao:hover { transform: translateY(-8px); box-shadow: 0 20px 40px rgba(0,0,0,0.08); }
+  .card-indicacao:hover::before { transform: scaleX(1); }
+  .icone { font-size: 3rem; margin-bottom: 20px; display: block; }
+  .card-indicacao h3 { font-size: 1.1rem; font-family: 'Montserrat', sans-serif; color: var(--texto-escuro); font-weight: 600; }
+
+  /* ================= A ESPECIALISTA ================= */
+  .especialista { padding: 120px 20px; background-color: var(--branco); }
+  .esp-layout {
+    max-width: 1100px; margin: 0 auto;
+    display: flex; flex-direction: column; gap: 50px; align-items: center;
+  }
+  .esp-imagem {
+    width: 100%; max-width: 400px; border-radius: 30px; overflow: hidden;
+    box-shadow: 20px 20px 0px var(--verde-claro); flex-shrink: 0;
+  }
+  .esp-imagem img { width: 100%; display: block; border-radius: 30px; object-fit: cover; }
+  .esp-texto { width: 100%; }
+  .esp-texto h2 { font-size: 2.5rem; margin-bottom: 30px; }
+  .esp-texto p { color: var(--texto-claro); margin-bottom: 20px; font-size: 1.05rem; }
+  .destaque-formacao {
+    background-color: var(--fundo-bege); padding: 30px; border-radius: 20px;
+    border-left: 6px solid var(--roxo); box-shadow: 0 10px 30px rgba(0,0,0,0.05); margin-top: 30px;
+  }
+  .destaque-formacao h4 {
+    font-family: 'Montserrat', sans-serif; color: var(--roxo-escuro); font-size: 1.1rem;
+    margin-bottom: 15px; text-transform: uppercase; letter-spacing: 1px;
+  }
+  .destaque-formacao ul { list-style: none; }
+  .destaque-formacao li { margin-bottom: 15px; font-size: 1rem; color: var(--texto-escuro); padding-left: 25px; position: relative; }
+  .destaque-formacao li::before { content: '✦'; position: absolute; left: 0; color: var(--coral); }
+
+  /* ================= A SALA SENSORIAL ================= */
+  .estrutura-sensorial { padding: 120px 20px; background-color: var(--fundo-areia); }
+  .estrutura-header { text-align: center; max-width: 900px; margin: 0 auto 60px auto; }
+  .estrutura-header .selo { color: var(--coral); font-weight: 700; text-transform: uppercase; letter-spacing: 2px; font-size: 0.85rem; margin-bottom: 15px; display: block; }
+  .estrutura-header h2 { font-size: 2.8rem; margin-bottom: 20px; color: var(--roxo-escuro); }
+  .estrutura-header p { color: var(--texto-claro); font-size: 1.15rem; max-width: 750px; margin: 0 auto; }
+
+  .estrutura-content {
+    max-width: 1200px; margin: 0 auto; display: flex; flex-direction: column; gap: 50px;
+  }
+  .estrutura-tecnica { display: grid; grid-template-columns: 1fr; gap: 25px; }
+  
+  .equip-card {
+    background: var(--branco); padding: 35px; border-radius: 20px;
+    box-shadow: 0 15px 40px rgba(0,0,0,0.04); border-top: 4px solid var(--verde-salvia);
+    transition: 0.4s; display: flex; flex-direction: column;
+  }
+  .equip-card:hover { transform: translateY(-5px); box-shadow: 0 20px 50px rgba(0,0,0,0.08); border-top-color: var(--roxo); }
+  
+  .equip-card .icone-card { font-size: 2.5rem; margin-bottom: 15px; display: inline-block; }
+  
+  .equip-card h4 { color: var(--roxo-escuro); font-size: 1.3rem; margin-bottom: 12px; font-family: 'Playfair Display', serif; }
+  .equip-card p { color: var(--texto-claro); font-size: 0.95rem; line-height: 1.7; flex-grow: 1; }
+
+  /* ================= GALERIA DE FOTOS REDUZIDA ================= */
+  .galeria-sensorial { 
+    display: grid; 
+    grid-template-columns: 1fr; 
+    gap: 20px; 
+    width: 100%;
+    max-width: 900px; 
+    margin: 0 auto; 
+  }
+  
+  .galeria-sensorial .foto-item {
+    position: relative; border-radius: 20px; overflow: hidden;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+    display: flex; flex-direction: column; background: #eaeaea;
+  }
+  
+  .galeria-sensorial .foto-item img { 
+    width: 100%; 
+    height: 100%; 
+    object-fit: cover; 
+    display: block; 
+    height: 250px; 
+  }
+
+  @media (min-width: 900px) {
+    .galeria-sensorial {
+      grid-template-columns: 1.5fr 1fr 1fr; 
+      align-items: stretch;
+    }
+    .galeria-sensorial .foto-item img {
+      height: 220px; 
+    }
+  }
+
+  /* ================= TRABALHO MULTIPROFISSIONAL ================= */
+  .multiprofissional {
+    max-width: 1200px; margin: 80px auto 0 auto; 
+    background-color: var(--roxo-escuro); color: var(--branco);
+    border-radius: 30px; padding: 50px; 
+    box-shadow: 0 20px 50px rgba(59, 46, 69, 0.2);
+    display: flex; flex-direction: column; gap: 20px; text-align: center;
+  }
+  .multiprofissional h3 { color: var(--coral); font-size: 2rem; font-family: 'Playfair Display', serif; }
+  .multiprofissional p { color: #d1cdd6; font-size: 1.1rem; max-width: 800px; margin: 0 auto; }
+  
+  .mp-icones { display: flex; gap: 20px; font-size: 2rem; justify-content: center; margin-top: 10px; }
+  .mp-icones span { background: rgba(255,255,255,0.1); padding: 15px; border-radius: 15px; }
+
+  /* ================= RODAPÉ ================= */
+  footer { background-color: #1a181c; color: var(--branco); padding: 100px 20px 40px; text-align: center; }
+  .footer-container { max-width: 900px; margin: 0 auto; }
+  footer h2 { color: var(--branco); margin-bottom: 15px; font-size: 2.5rem; }
+  footer p { color: #a09ba8; margin-bottom: 40px; font-size: 1.1rem; }
+  .btn-whatsapp {
+    background-color: #25D366; color: white; padding: 20px 45px; border-radius: 50px;
+    text-decoration: none; font-weight: 700; font-size: 1.2rem; display: inline-block;
+    margin-bottom: 60px; box-shadow: 0 10px 30px rgba(37, 211, 102, 0.3); transition: 0.4s;
+  }
+  .btn-whatsapp:hover { background-color: #1ebe5d; transform: translateY(-4px); box-shadow: 0 15px 40px rgba(37, 211, 102, 0.4); }
+  .info-contato { display: flex; flex-direction: column; gap: 40px; align-items: center; border-top: 1px solid rgba(255,255,255,0.08); padding-top: 50px; margin-bottom: 40px; }
+  .info-item { display: flex; flex-direction: column; align-items: center; gap: 10px; font-size: 1rem; color: #a09ba8; }
+  .info-item span { font-size: 2rem; }
+  .info-item strong { color: var(--branco); font-size: 1.1rem; display: block; margin-bottom: 5px; }
+  .creditos { font-size: 0.85rem; color: #666; margin-top: 30px; }
+
+  /* ================= RESPONSIVIDADE ================= */
+  @media (min-width: 900px) {
+    .esp-layout { display: grid; grid-template-columns: 400px 1fr; gap: 80px; align-items: start; }
+    .esp-imagem { position: sticky; top: 120px; max-width: 100%; }
+    
+    .estrutura-tecnica { grid-template-columns: 1fr 1fr; }
+    
+    .multiprofissional { flex-direction: row; text-align: left; align-items: center; padding: 60px; }
+    .multiprofissional h3 { width: 25%; flex-shrink: 0; }
+    .multiprofissional p { width: 60%; }
+    .mp-icones { width: 15%; flex-direction: column; align-items: flex-end; }
+    
+    .info-contato { flex-direction: row; justify-content: center; gap: 80px; }
+    .info-item { flex-direction: row; text-align: left; gap: 20px; }
+  }
+  
+  @media (max-width: 768px) {
+    header { padding: 15px 20px; background-color: rgba(26, 24, 28, 0.95); }
+    header.scrolled { background-color: rgba(252, 250, 245, 0.95); }
+    .logo-text { font-size: 1.5rem; }
+    .btn-header { display: none; }
+    
+    .hero-texto-wrapper h1 { font-size: 2.5rem; }
+    .hero-subtitulo { font-size: 1.1rem; }
+    .btn-hero { align-self: center; width: 100%; justify-content: center; }
+    
+    .frase-impacto blockquote { font-size: 1.6rem; }
+    .acolhimento h2 { font-size: 2rem; }
+    .esp-texto h2 { font-size: 2.2rem; }
+    .estrutura-header h2 { font-size: 2.2rem; }
+    .esp-imagem { box-shadow: 10px 10px 0px var(--verde-claro); }
+    .multiprofissional { padding: 30px 20px; }
+    .multiprofissional h3 { font-size: 1.6rem; }
+  }
+</style>
+</head>
+<body>
+
+  <header id="header">
+    <div class="logo-text">Livia Caroline</div>
+    <a href="https://wa.me/5531999490405" target="_blank" class="btn-header">Agendar Consulta</a>
+  </header>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-texto-wrapper">
+      <span class="hero-subtitulo">Consultório Sensorial</span>
+      <h1>Desperte a <em>autonomia</em> e o potencial do seu filho.</h1>
+      <p>Um espaço acolhedor e especializado em Terapia Ocupacional e Integração Sensorial, desenhado para ajudar crianças a florescerem no seu próprio ritmo.</p>
+      <a href="https://wa.me/5531999490405" target="_blank" class="btn-hero">
+        <span>💬</span> Agendar avaliação
+      </a>
+    </div>
+    <div class="hero-imagem-wrapper">
+      <img src="foto-livia.jpg" alt="Livia Caroline na Sala Sensorial">
+    </div>
+  </section>
+
+  <!-- FRASE IMPACTANTE -->
+  <section class="frase-impacto">
+    <blockquote>
+      "A Terapia Ocupacional é a arte de <span>desenhar caminhos</span> onde o mundo construiu paredes, permitindo que a infância aconteça sem limites."
+    </blockquote>
+  </section>
+
+  <!-- ACOLHIMENTO -->
+  <section class="acolhimento">
+    <div class="acolhimento-container">
+      <h2>Entendemos os desafios.<br>Estamos aqui para ajudar.</h2>
+      <p>Se o seu filho demonstra dificuldades com barulhos, texturas, mudanças de rotina, ou se você busca um acompanhamento para TEA, TDAH ou atrasos no desenvolvimento, o primeiro passo é encontrar um lugar onde ele se sinta seguro e compreendido.</p>
+    </div>
+  </section>
+
+  <!-- INDICAÇÕES -->
+  <section class="indicacoes">
+    <div class="indicacoes-container">
+      <h2>Como podemos ajudar?</h2>
+      <span class="subtitulo">O acompanhamento adequado transforma a rotina de toda a família.</span>
+      
+      <div class="grid-indicacoes">
+        <div class="card-indicacao">
+          <span class="icone">🧩</span>
+          <h3>Autismo (TEA)</h3>
+        </div>
+        <div class="card-indicacao">
+          <span class="icone">🧠</span>
+          <h3>TDAH</h3>
+        </div>
+        <div class="card-indicacao">
+          <span class="icone">⭐</span>
+          <h3>TDA</h3>
+        </div>
+        <div class="card-indicacao">
+          <span class="icone">✋</span>
+          <h3>Atrasos no Desenvolvimento</h3>
+        </div>
+        <div class="card-indicacao">
+          <span class="icone">🤸</span>
+          <h3>Dificuldades Motoras</h3>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- A ESPECIALISTA -->
+  <section class="especialista">
+    <div class="esp-layout">
+      <div class="esp-imagem">
+        <img src="foto-livia.jpg" alt="Livia Caroline - Terapeuta Ocupacional">
+      </div>
+      
+      <div class="esp-texto">
+        <h2>Quase 20 anos de dedicação à infância</h2>
+        <p>Livia Caroline é Terapeuta Ocupacional com uma trajetória sólida e dedicada ao desenvolvimento infantil. Sua experiência abrange desde ambulatórios de neuropediatria até a atenção primária e saúde mental infanto-juvenil, sempre com um olhar atento e humanizado para cada criança e sua família.</p>
+        <p>Em 2024 realizou o Curso de Integração Sensorial (BENU) e, em 2026, concluiu sua pós-graduação. Em agosto de 2026, concretizou o sonho de abrir seu próprio consultório em Nova Lima, criando um ambiente onde a excelência técnica e o acolhimento caminham juntos.</p>
+        
+        <div class="destaque-formacao">
+          <h4>Formação e Especialização de Excelência</h4>
+          <ul>
+            <li><strong>Graduação em Terapia Ocupacional</strong> pela renomada <strong>FCMMG — Faculdade de Ciências Médicas de Minas Gerais</strong> (conclusão em 2009).</li>
+            <li><strong>Pós-Graduação em Integração Sensorial no Desenvolvimento Infantil</strong> pela Sensory Educacional (2026).</li>
+            <li><strong>Curso de Integração Sensorial</strong> pelo BENU (2024).</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- A SALA SENSORIAL -->
+  <section class="estrutura-sensorial">
+    <div class="estrutura-header">
+      <span class="selo">Estrutura de Ponta</span>
+      <h2>Um ambiente projetado para o desenvolvimento neurológico</h2>
+      <p>Não é apenas uma sala de brincar. É um espaço clínico planejado nos mínimos detalhes para oferecer os estímulos sensoriais exatos de que cada criança precisa para se regular, aprender e se desenvolver com segurança.</p>
+    </div>
+
+    <div class="estrutura-content">
+      
+      <div class="estrutura-tecnica">
+        <div class="equip-card">
+          <span class="icone-card">🧗</span>
+          <h4>Estímulos vestibulares e equilíbrio</h4>
+          <p>Desenvolvidos em balanços e redes para organizar a percepção de movimento, gravidade e postura no espaço.</p>
+        </div>
+        <div class="equip-card">
+          <span class="icone-card">🤸‍♀️</span>
+          <h4>Propriocepção e consciência corporal</h4>
+          <p>Estimulados por meio de tração, peso e compressão (como nas piscinas de bolinhas e rolos), ajudando o cérebro a reconhecer a posição do próprio corpo.</p>
+        </div>
+        <div class="equip-card">
+          <span class="icone-card">✋</span>
+          <h4>Processamento tátil e discriminação</h4>
+          <p>Promovido pelo contato com diferentes texturas, temperaturas e pressões. Esse estímulo reduz a hipersensibilidade ao toque e melhora a coordenação motora fina.</p>
+        </div>
+        <div class="equip-card">
+          <span class="icone-card">🏃</span>
+          <h4>Praxia e planejamento motor</h4>
+          <p>Desenvolvido através de circuitos e obstáculos que desafiam a criança a idealizar, planejar e executar uma sequência nova de movimentos físicos.</p>
+        </div>
+      </div>
+
+      <!-- GALERIA DE FOTOS -->
+      <div class="galeria-sensorial">
+        <div class="foto-item">
+          <img src="foto-sala1.jpg" alt="Sala Sensorial Ampliada" onerror="this.src='https://via.placeholder.com/600x400/f8f4eb/6f8f7a?text=Foto+da+Sala+Sensorial'">
+        </div>
+        <div class="foto-item">
+          <img src="foto-sala2.jpg" alt="Balanço" onerror="this.src='https://via.placeholder.com/400x400/f8f4eb/6f8f7a?text=Equipamentos'">
+        </div>
+        <div class="foto-item">
+          <img src="foto-recepcao.jpg" alt="Recepção Acolhedora" onerror="this.src='https://via.placeholder.com/400x400/f8f4eb/6f8f7a?text=Recepcao'">
+        </div>
+      </div>
+
+    </div>
+
+    <div class="multiprofissional">
+      <h3>Trabalho em Rede e Integração Escolar</h3>
+      <p>O desenvolvimento não acontece só no consultório. O trabalho inclui o <strong>acompanhamento e a integração escolar</strong>, com reuniões junto à equipe pedagógica. Além disso, atua em colaboração com outras especialidades (fonoaudiólogos, psicólogos, pedagogos), alinhando objetivos para garantir um tratamento integral e transformador.</p>
+      <div class="mp-icones">
+        <span>🏫</span>
+        <span>🗣️</span>
+        <span>🧠</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- RODAPÉ -->
+  <footer>
+    <div class="footer-container">
+      <h2>Vamos conversar?</h2>
+      <p>Estamos prontos para acolher sua família e traçar o melhor caminho para o desenvolvimento do seu filho.</p>
+      
+      <a href="https://wa.me/5531999490405" target="_blank" class="btn-whatsapp">Agendar pelo WhatsApp</a>
+      
+      <div class="info-contato">
+        <div class="info-item">
+          <span>📍</span>
+          <div>
+            <strong>Onde estamos</strong><br>
+            Av. Picadilly, Nº 100, Sala 225<br>
+            Alphaville Lagoa dos Ingleses<br>
+            Nova Lima / MG
+          </div>
+        </div>
+        <div class="info-item">
+          <span>📞</span>
+          <div>
+            <strong>Telefone</strong><br>
+            (31) 99949-0405
+          </div>
+        </div>
+      </div>
+      
+      <div class="creditos">
+        © 2026 Livia Caroline — Terapia Ocupacional. Todos os direitos reservados.<br>
+        Este site não substitui uma avaliação profissional presencial.
+        <br><br>
+        <!-- Link discreto para a área restrita (Painel) -->
+        <a href="painel.html" style="color: #a09ba8; text-decoration: none; font-size: 0.8rem; opacity: 0.5; transition: 0.3s;" onmouseover="this.style.opacity='1'" onmouseout="this.style.opacity='0.5'">Acesso Restrito</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    window.addEventListener('scroll', function() {
+      const header = document.getElementById('header');
+      if (window.scrollY > 50) {
+        header.classList.add('scrolled');
+      } else {
+        header.classList.remove('scrolled');
+      }
+    });
+  </script>
+
+</body>
+</html>
